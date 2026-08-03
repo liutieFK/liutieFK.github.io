@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>妇科手术AI健康宣教</title>
+    <style>
+        body{font-family:system-ui;padding:20px;text-align:center;}
+        .box{max-width:360px;margin:0 auto;}
+        .btn{display:block;padding:16px;margin:12px 0;border:none;border-radius:10px;font-size:18px;color:#fff;background:#2574dd;}
+        .tip{color:#666;font-size:14px;margin-top:20px;line-height:1.6;}
+    </style>
+</head>
+<body>
+<div class="box">
+    <h3>妇科手术个性化健康宣教助手</h3>
+    <button class="btn" id="copyBtn">点击一键复制宣教指令</button>
+    <a href="https://www.doubao.com/" target="_blank" class="btn" style="background:#34a853">前往豆包网页版</a>
+    <div class="tip">
+        使用方法：先复制指令 → 打开豆包 → 在输入框长按粘贴发送<br>
+        AI会主动询问您年龄、手术名称、术前/术后时间，提供一对一指导
+        <br><br>⚠温馨提示：内容仅为科普参考，不适请及时告知医护人员
+    </div>
+</div>
+<script>
+const promptText = `你是妇科围手术期健康宣教助手。请依次向我询问：年龄、手术名称、术前/术后第几天。收集信息后给予通俗易懂的个体化饮食、活动、伤口护理、异常情况识别、复查指导。
+重要提醒：内容仅为健康科普参考，不能替代医护诊疗；出现腹痛加重、异常阴道流血、发热，请马上告知管床护士/医生。`;
+const copyBtn = document.getElementById('copyBtn');
+copyBtn.onclick = async ()=>{
+    try{
+        await navigator.clipboard.writeText(promptText);
+        alert("复制成功！请点击下方按钮进入豆包网页");
+    }catch(err){
+        alert("自动复制失败，请手动复制页面文字："+promptText);
+    }
+}
+</script>
+</body>
+</html>
